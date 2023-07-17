@@ -1,0 +1,18 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter6.Listing6_2Model
+@{
+}
+
+<div class="text-xl-center alert-danger">
+    @if (Model.XmlError == "XmlError String")
+    {
+
+    }
+    else
+    {
+        <h3>@Model.XmlError</h3>
+    }
+</div>
+
+
+<h1>@Model.BooksDocXML</h1>

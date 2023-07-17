@@ -1,0 +1,14 @@
+﻿@page
+@model XMLAspNetCore.Pages.JustHeartModel
+@{
+}
+
+<div class="heart display-6"></div>
+
+@section Scripts {
+    <script>
+        $(function() {
+            $('.heart').css('cubic-bezier(0.42,0,0.58,1)');
+        });
+    </script>
+}

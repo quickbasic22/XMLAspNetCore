@@ -1,0 +1,18 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter4.XmlReaderPage4_4Model
+@{
+    ViewData["Title"] = "Processing the Data in an XML File";
+}
+
+
+    <fieldset>
+        <legend>Xml Data</legend>
+
+        <p>
+        @Html.Raw(@ViewData["XmlData"].ToString())
+        </p>
+
+        <p>
+            @ViewData["StatusMessage"]
+        </p>
+    </fieldset>

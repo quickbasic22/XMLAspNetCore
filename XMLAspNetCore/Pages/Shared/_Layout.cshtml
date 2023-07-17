@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - XMLAspNetCore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/XMLAspNetCore.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    @{
+        var xmlPages = new Dictionary<string, string>
+            {
+                { "Select Page", "Select Page" },
+                { "Xml Reader Page 1", "/XML/Chapter4/XmlReaderPage" },
+                { "Xml Reader Page 2", "/XML/Chapter4/XmlReaderPage4-3" },
+                { "Xml Reader Page 3", "/XML/Chapter4/XmlReaderPage4-4" },
+                { "Xml Reader Page 4", "/XML/Chapter4/XmlReaderPage4-5" },
+                { "Xml Writer Page 5", "/XML/Chapter4/XmlWriterPage4-6" },
+                { "Xml Writer Page 6", "/XML/Chapter4/XmlWriterPage4-7" },
+            };
+        }
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Index</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/XMLPage">XMLPage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/StringPage">StringPage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AdventureWorks/Index">AdventureWorks</a>
+                        </li>
+                        <li class="nav-item">
+                            <form id="_Layout" method="get">
+                                <label id="selectLabel" for="xmlPage">Select XML Page:</label>
+                                <select id="xmlPage" name="xmlPage" onchange="changeXmlPage(this)">
+                                    @foreach (var xmlPage in xmlPages)
+                                    {
+                                        <option value="@xmlPage.Value">@xmlPage.Key</option>
+                                    }
+                                </select>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AJAX/Index">AJAX Index</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AJAX/GetTime">AJAX GetTime</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnimateMyHeart">AnimateMyHeart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/JustHeart">JustHeart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/XmlPagesLinks">XmlPagesLinks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - XMLAspNetCore - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+        </body>       
+</html>

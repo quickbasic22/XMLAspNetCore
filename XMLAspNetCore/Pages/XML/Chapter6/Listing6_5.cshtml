@@ -1,0 +1,69 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter6.Listing6_5Model
+@{
+    ViewData["Title"] = "Creating a XmlDocument";
+}
+
+<body>
+    <form id="form1" method="post">
+        <div>
+            <table>
+                <tr>
+                    <td colspan="2" style="width: 174px;height: 40px">
+                        <b>Book Details</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 201px;height: 44px">
+                        Genre:
+                    </td>
+                    <td style="width: 304px;height: 44px">
+                        @Html.TextBox("txtGenre", Model.Genre)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 201px;height: 44px">
+                        Title:
+                    </td>
+                    <td style="width: 304px;height: 44px">
+                        @Html.TextBox("txtBookTitle", Model.BookTitle)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 201px;height: 44px">
+                        First Name:
+                    </td>
+                    <td style="width: 304px;height: 44px">
+                        @Html.TextBox("txtFirstName", Model.FirstName)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 201px;height: 44px">
+                        Last Name:
+                    </td>
+                    <td style="width: 304px;height: 44px">
+                        @Html.TextBox("txtLastName", Model.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 201px;height: 44px">
+                        Price:
+                    </td>
+                    <td style="width: 304px;height: 44px">
+                        @Html.TextBox("txtPrice", Model.Price)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 101px;height: 41px">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 101px;height: 41px">
+                        @Html.Label("txtResult", Model.Result)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>

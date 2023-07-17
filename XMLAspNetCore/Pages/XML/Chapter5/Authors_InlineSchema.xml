@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:x="urn:authors">
+	<!-- Start of Schema-->
+	<xs:schema targetNamespace="urn:authors">
+		<xs:element name="authors">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="author">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="au_id" type="xs:string" />
+								<xs:element name="au_lname" type="xs:string" />
+								<xs:element name="au_fname" type="xs:string" />
+								<xs:element name="phone" type="xs:string" />
+								<xs:element name="address" type="xs:string" />
+								<xs:element name="city" type="xs:string" />
+								<xs:element name="state" type="xs:string" />
+								<xs:element name="zip" type="xs:unsignedInt" />
+								<xs:element name="contract" type="xs:boolean" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	</xs:schema>
+	<!-- End of Schema -->
+	<x:authors>
+		<author>
+			<au_id>172-32-1176</au_id>
+			<au_lname>White</au_lname>
+			<au_fname>Johnson</au_fname>
+			<phone>408 496-7223</phone>
+			<address>10932 Bigge Rd.</address>
+			<city>Menlo Park</city>
+			<state>CA</state>
+			<zip>94025</zip>
+			<contract>true</contract>
+		</author>
+		<author>
+			<au_id>213-46-8915</au_id>
+			<au_lname>Green</au_lname>
+			<au_fname>Marjorie</au_fname>
+			<phone>415 986-7020</phone>
+			<address>309 63rd St. #411</address>
+			<city>Oakland</city>
+			<state>CA</state>
+			<zip>94618</zip>
+			<contract>true</contract>
+		</author>
+	</x:authors>
+</root>
+	

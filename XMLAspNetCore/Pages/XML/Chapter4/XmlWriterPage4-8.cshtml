@@ -1,0 +1,24 @@
+﻿@page "{RazorPage?}"
+@model XMLAspNetCore.Pages.XML.Chapter4.XmlWriterPage4_8Model
+@{
+    ViewData["Title"] = "Writing XML File with XmlWriterSettings";
+}
+
+
+    <fieldset>
+        <legend>Xml Data</legend>
+
+        <p class="alert-danger"><b>@ViewData["StatusMessage1"]</b></p>
+        <p class="alert-danger"><b>@ViewData["StatusMessage2"]</b></p>
+
+        <p>
+        @Html.Raw(@ViewData["XmlData"].ToString())
+        </p>
+
+        @Html.Partial("_Details")
+
+
+    </fieldset>
+
+
+<h2>@ViewData["MyDirectory"]</h2>

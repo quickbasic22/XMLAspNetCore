@@ -1,0 +1,22 @@
+﻿using Microsoft.EntityFrameworkCore;
+using XMLAspNetCore.Models;
+
+namespace XMLAspNetCore.Data
+{
+    public class AdventureWorksContext : DbContext
+    {
+        public AdventureWorksContext(DbContextOptions<AdventureWorksContext> options)
+           : base(options)
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Name=ConnectionStrings:AdventureWorksContext");
+            }
+        }
+        
+    }
+}

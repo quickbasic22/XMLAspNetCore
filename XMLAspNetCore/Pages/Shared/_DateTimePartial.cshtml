@@ -1,0 +1,88 @@
+﻿@using System.Drawing;
+
+@{
+    ViewData["Title"] = "Current Time";
+    Random random = new Random();
+    string myMessage = "";
+    Color textColor = Color.White;
+    Color backColor = Color.White;
+    switch (random.Next(1, 5))
+    {
+        case 1:
+            myMessage = "Asp.Net Core MVC is Excellent choice";
+            break;
+        case 2:
+            myMessage = "Asp.Net Core Razor Pages is Very choice";
+            break;
+        case 3:
+            myMessage = "Asp.Net Core Web API is nice choice";
+            break;
+        case 4:
+            myMessage = "Asp.Net Core Static Website is easy choice";
+            break;
+        case 5:
+            myMessage = "JQuery Website is very basic choice";
+            break;
+    }
+    switch (random.Next(1, 5))
+    {
+        case 1:
+            textColor = Color.White;
+            break;
+        case 2:
+            textColor = Color.Yellow;
+            break;
+        case 3:
+            textColor = Color.Red;
+            break;
+        case 4:
+            textColor = Color.Chocolate;
+            break;
+        case 5:
+            textColor = Color.Gold;
+            break;
+    }
+    switch (random.Next(1, 5))
+    {
+        case 1:
+            backColor = Color.Azure;
+            if (textColor == backColor)
+            {
+                goto case 2;
+            }
+            else if (backColor == Color.White)
+            {
+                goto case 3;
+            }
+            else if (backColor == Color.Azure)
+            {
+                goto case 4;
+            }
+            break;
+        case 2:
+            backColor = Color.BlueViolet;
+            break;
+        case 3:
+            backColor = Color.DarkMagenta;
+            break;
+        case 4:
+            backColor = Color.GreenYellow;
+            break;
+        case 5:
+            backColor = Color.HotPink;
+            break;
+    }
+}
+
+<h1>Back Color Name</h1>
+<h3>@backColor.Name</h3>
+
+<body style="background-color: @backColor.Name;font-size: 24px">
+    <h1 style="background-color: @backColor.Name; color: @textColor.Name">@TimeOnly.FromDateTime(DateTime.Now)</h1>
+
+    <h3 style="background-color: @backColor.Name;font-size: 30px;color: @textColor.Name">@myMessage</h3>
+</body>
+
+<h1>text Color Name</h1>
+<h3>@textColor.Name</h3>
+

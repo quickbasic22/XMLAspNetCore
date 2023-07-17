@@ -1,0 +1,18 @@
+﻿
+
+@{
+    ViewData["Title"] = "Current DateTime";
+    var daysLeft = 365 - DateTime.Now.DayOfYear;
+}
+
+<h1>Current DateTime</h1>
+
+<div>
+    <h1 style="background-color: mediumpurple">@DateTime.Now</h1>
+
+    <h1>Current day of year</h1>
+    <h2 style="background-color: darkorange">@DateTime.Now.DayOfYear</h2>
+
+    <h1>Days left in 2023</h1>
+    <h2 style="background-color: darkorange">@daysLeft.ToString()</h2>
+</div>

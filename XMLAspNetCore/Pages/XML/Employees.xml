@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This XML file represents the details of an employee-->
+<employees>
+	<employee id="1">
+		<name>
+			<firstName>Nancy</firstName>
+			<lastName>Reagan</lastName>
+		</name>
+		<city>Seattle</city>
+		<state>WA</state>
+		<zipCode>98122</zipCode>
+	</employee>
+</employees>

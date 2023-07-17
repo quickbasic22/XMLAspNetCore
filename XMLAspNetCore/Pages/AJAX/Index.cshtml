@@ -1,0 +1,24 @@
+﻿@page
+@model XMLAspNetCore.Pages.AJAX.IndexModel
+@{
+    ViewData["Title"] = "AJAX Example";
+}
+
+<h1>Ajax Time Demo</h1>
+<div>The initial request time was @DateTime.Now</div>
+<div>But the AJAX time is <span>@DateTime.Now</span>
+
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $.ajaxSetup({
+                    cache: false
+                });
+                setInterval(function () {
+                    $('span').load('/AJAX/GetTime #GetTime');
+                }, 1000);
+            });
+        </script>
+    }
+</div>
+

@@ -1,0 +1,100 @@
+﻿@page
+@using System.Xml.XPath;
+@using Microsoft.AspNetCore.Html;
+@model IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Razor.TagHelpers
+@{
+    ViewData["Title"] = "XML File Creator";
+}
+
+
+       <h2 id="MyBackColor"></h2>
+
+    <div class="container">
+    <form method="post">
+        <div asp-asp-validation-summary="All" class="text-danger">
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <b>Book Details</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Genre:</td>
+                    <td>
+                        @Html.TextBoxFor(genre => genre.Books[0].Genre)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td>
+                        @Html.TextBoxFor(book => book.Books[0].BookTitle)
+                        </td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td> 
+                        @Html.TextBoxFor(firstname => firstname.Books[0].FirstName)
+                     </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        @Html.TextBoxFor(lastname => lastname.Books[0].LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        @Html.TextBoxFor(price => price.Books[0].Price)
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        @if (ViewData["StatusMessage"] != null)
+                        {
+                            var keyValues = ViewData["StatusMessage"];
+                            <h3>ViewData["StatusMessage"]</h3>
+                        }
+
+                       
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                       
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </form>
+    </div>
+
+<div id="datetime-container">
+    <partial name="_DateTimePartial" />
+</div>
+
+@section Scripts 
+{
+    <script>
+        setInterval(function() {
+            $('#datetime-container').load('/Index #datetime-container');
+        }, 3000);
+        function changePageColor() 
+        {
+            var colors = ["red", "blue", "green", "yellow"];
+            var mybackcolor = document.getElementById("MyBackColor");
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            mybackcolor.innerText = randomColor.valueOf();
+            document.body.style.backgroundColor = randomColor;
+        }
+        var myInterval = setInterval(changePageColor, 6000);
+
+    </script>
+}
+

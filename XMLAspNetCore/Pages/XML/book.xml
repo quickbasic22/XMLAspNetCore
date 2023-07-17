@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book>
+    <author>
+      <first-name>John</first-name>
+      <last-name>Doe</last-name>
+    </author>
+    <price>19.99</price>
+  </book>
+  <book>
+    <author>
+      <first-name>Jane</first-name>
+      <last-name>Smith</last-name>
+    </author>
+    <price>14.99</price>
+  </book>
+</bookstore>

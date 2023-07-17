@@ -1,0 +1,39 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter4.XmlWriterPage4_6Model
+@{
+    ViewData["Title"] = "Writing XML File";
+}
+
+
+    <fieldset>
+        <legend>Xml Data</legend>
+
+        <p>
+        @Html.Raw(@ViewData["XmlData"].ToString())
+        </p>
+
+    
+        <div id="message" style="display: block"><p id="pmessage"></p></div>
+
+    </fieldset>
+
+    @section Scripts {
+    <script>
+        // Function to display the message for a specific duration
+        function showMessage(message, duration) {
+            var messageDiv = document.getElementById("message");
+            var pmessage = document.getElementById("pmessage");
+            pmessage.innerHTML = message;
+            pmessage.style.display = "block";
+
+            setTimeout(function () {
+                messageDiv.style.display = "none";
+                pmessage.style.display = "none";
+            }, duration);
+        }
+
+        // Call the showMessage function with your desired message and duration
+        showMessage("Hello World!", 4000); // Display "Hello, world!" for 3 seconds (3000 milliseconds)
+    </script>
+    }
+

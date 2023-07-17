@@ -1,0 +1,18 @@
+﻿@page
+@model XMLPageModel
+@{
+    ViewData["Title"] = "Create XML File";
+}
+
+<h1>Create XML File</h1>
+
+@if (Model.FileCreated)
+{
+    <p>XML file created successfully.</p>
+}
+else
+{
+    <form method="post">
+        <button type="submit" class="btn btn-primary">Create XML File</button>
+    </form>
+}
