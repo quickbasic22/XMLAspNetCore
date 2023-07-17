@@ -18,7 +18,7 @@
                         Genre:
                     </td>
                     <td style="width: 304px;height: 44px">
-                        @Html.TextBox("txtGenre", Model.Genre)
+                        @Html.TextBox("txtGenre", Model.Genre);
                     </td>
                 </tr>
                 <tr>
@@ -26,7 +26,7 @@
                         Title:
                     </td>
                     <td style="width: 304px;height: 44px">
-                        @Html.TextBox("txtBookTitle", Model.BookTitle)
+                        @Html.TextBox("txtBookTitle", Model.BookTitle);
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                         First Name:
                     </td>
                     <td style="width: 304px;height: 44px">
-                        @Html.TextBox("txtFirstName", Model.FirstName)
+                        @Html.TextBox("txtFirstName", Model.FirstName);
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                         Last Name:
                     </td>
                     <td style="width: 304px;height: 44px">
-                        @Html.TextBox("txtLastName", Model.LastName)
+                        @Html.TextBox("txtLastName", Model.LastName);
                     </td>
                 </tr>
                 <tr>
@@ -50,7 +50,7 @@
                         Price:
                     </td>
                     <td style="width: 304px;height: 44px">
-                        @Html.TextBox("txtPrice", Model.Price)
+                        @Html.TextBox("txtPrice", Model.Price);
                     </td>
                 </tr>
                 <tr>
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="width: 101px;height: 41px">
-                        @Html.Label("txtResult", Model.Result)
+                        @Html.DisplayFor(r => r.Result)
                     </td>
                 </tr>
             </table>

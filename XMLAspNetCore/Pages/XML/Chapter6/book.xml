@@ -23,12 +23,28 @@
     </author>
     <price>9.99</price>
   </book>
-  <book genre="Genre String">
-    <title>BookTitle String</title>
+  <book genre="Computer">
+    <title>Professional ASP.NET 2.0 XML</title>
     <author>
-      <first-name>FirstName String</first-name>
-      <last-name>LastName String</last-name>
+      <first-name>David</first-name>
+      <last-name>Morrow</last-name>
     </author>
-    <price>Price String</price>
+    <price>39.99</price>
+  </book>
+  <book genre="Website">
+    <title>ASP.NET Core Razor Pages</title>
+    <author>
+      <first-name>David</first-name>
+      <last-name>Morrow</last-name>
+    </author>
+    <price>49.99</price>
+  </book>
+  <book genre="Website">
+    <title>ASP.NET Core MVC</title>
+    <author>
+      <first-name>David</first-name>
+      <last-name>Morrow</last-name>
+    </author>
+    <price>59.99</price>
   </book>
 </bookstore>
