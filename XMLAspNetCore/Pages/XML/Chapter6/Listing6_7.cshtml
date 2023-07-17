@@ -1,0 +1,15 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter6.Listing6_7Model
+@{
+    ViewData["Title"] = "Evaluating XPath Expressions";
+}
+<h1>Creating Fragments of XML Using XmlDocumentFragment</h1>
+
+<div>
+    <form method="post">
+        <p>Select the XPath Expression</p>
+        @Html.DropDownList("ddlExpressions", Model.DDLExpressions, "Pick a XPath");
+        <br />
+        <br />
+    </form>
+</div>
