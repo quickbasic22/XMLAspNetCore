@@ -44,11 +44,11 @@ namespace XMLAspNetCore.Pages.XML.Chapter6
         XmlNode CreateBookNode(XmlDocument doc)
         {
             XmlDocumentFragment docFragment = doc.CreateDocumentFragment();
-            docFragment.InnerXml = @"<book genre&apos;" + @"{Request.Form['txtGenre']}&apos;>" + 
-                "<title>" + Request.Form["txtBookTitle"] + "</title" +
+            docFragment.InnerXml = @"<book genre='" + Request.Form["txtGenre"] + "'>" + 
+                "<title>" + Request.Form["txtBookTitle"] +" </title>" +
                 "<author><first-name>" + Request.Form["txtFirstName"] + "</first-name>" +
-                "<last-name>" + Request.Form["txtLastName"] + "</last-name><author>"
-                + "<price>" + Request.Form["txtPrice"] + "</price></book>";
+                "<last-name>" + Request.Form["txtLastName"] + "</last-name></author>" +
+                "<price>" + Request.Form["txtPrice"] + "</price></book>";
             return docFragment;
         }
     }

@@ -32,7 +32,8 @@ namespace XMLAspNetCore.Pages.XML.Chapter6
         private void DisplayNodes(XmlNode node)
         {
 
-            string htmlSpace = "<br />";
+            StringBuilder htmlSpace = new StringBuilder();
+            htmlSpace.Append("<br />");
             try
             {
                 // Print the node type, node name and node value of the node
@@ -59,7 +60,7 @@ namespace XMLAspNetCore.Pages.XML.Chapter6
                         DisplayNodes(child);
                     }
                 }
-
+                ViewData["HtmlCode"] = XMLString;
             }
             catch (XmlException xmlEx)
             {

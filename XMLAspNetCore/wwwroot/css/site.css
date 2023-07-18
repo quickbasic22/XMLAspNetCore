@@ -68,4 +68,14 @@ div {
         transform: scale(1);
         border: solid blue 20px;
     }
+    }
+
+#listBox {
+    width: 800px;
+    height: 300px;
+    font-size: 16px;
+}
+#ddlSelect {
+    width: 800px;
+    font-size: 20px;
 }

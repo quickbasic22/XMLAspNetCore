@@ -3,13 +3,35 @@
 @{
     ViewData["Title"] = "Evaluating XPath Expressions";
 }
-<h1>Creating Fragments of XML Using XmlDocumentFragment</h1>
+<h1>Evaluating XPath Expressions</h1>
 
 <div>
-    <form method="post">
+    <form id="form1" method="post">
         <p>Select the XPath Expression</p>
-        @Html.DropDownList("ddlExpressions", Model.DDLExpressions, "Pick a XPath");
+        <select id="ddlSelect" name="ddlSelect" asp-for="DDLSelectedIndex" asp-items="Model.DDLExpressions">
+        </select>
         <br />
         <br />
+        <select id="listBox" name="listBox" asp-for="ListBoxIndex" asp-items="Model.ListBox">
+        </select>
+        <input id="mySubmit" type="submit" class="btn btn-primary" value="Submit" />
     </form>
+
+    <h1>@Model.Result</h1>
 </div>
+
+@section Scripts {
+    <script>
+        $(function() {
+            $("#ddlSelect").change(function() {
+                var ddlSelect = $(this);
+                var listBox = $("#listBox");
+                $("#mySubmit").click();
+
+                $("#form1").submit(function() {
+
+                });
+            });
+        });
+    </script>
+}

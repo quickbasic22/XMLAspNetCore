@@ -1,4 +1,28 @@
-﻿.heart {
+﻿  $("#ddSelect").onchange(function () {
+            var ddlSelect = $(this);
+            var listBox = $("#listBox");
+            var url = $(this).data("request-url");
+
+            // Perform AJAX request or navigate to the generated URL
+            // Example AJAX request:
+            $.ajax({
+                url: url,
+                method: "POST"
+                
+                // Additional parameters or data
+                success: function (response) {
+                    // Handle success
+                },
+                error: function (error) {
+                    // Handle error
+                }
+            });
+
+        });
+
+
+
+.heart {
     width: 100px;
     height: 100px;
     background-color: red;

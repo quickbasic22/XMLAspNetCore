@@ -26,13 +26,12 @@ namespace XMLAspNetCore.Pages.XML.Chapter6
         public string Price { get; set; } = "Price String";
         [BindProperty(SupportsGet = true)]
         public string Result { get; set; } = "Result String";
-        [BindProperty(SupportsGet = true)]
         public SelectList DDLExpressions { get; set; }
+        public List<SelectListItem> DDLItems { get; set; }
         public int DDLSelectedIndex { get; set; }
         public SelectList ListBox { get; set; }
         public int[] ListBoxIndex { get; set; }
         public List<SelectListItem> ListBoxItems { get; set; }
-
         public void OnGet()
         {
             XMLString = "";
@@ -43,40 +42,63 @@ namespace XMLAspNetCore.Pages.XML.Chapter6
             LastName = "Morrow";
             Price = "99.99";
             Result = "";
-            List<SelectListItem> selectListOptions = new List<SelectListItem>
+            DDLItems = new List<SelectListItem>
             {
                 new SelectListItem { Text = "//book/title", Value = "//book/title" },
                 new SelectListItem { Text = "//book[@genre='novel']/title", Value = "//book[@genre='novel']/title"},
                 new SelectListItem { Text = "//book/author/first-name", Value = "//book/author/first-name" },
                 new SelectListItem { Text = "//book[@genre='philosophy']/title", Value = "//book[@genre='philosophy']/title"},
                 new SelectListItem { Text = "//book/price", Value = "//book/price" },
-                new SelectListItem { Text = "//book[3]/title", Value = "//book[3]/title"},
+                new SelectListItem { Text = "//book[3]/title", Value = "//book[3]/title"}
             };
-            DDLSelectedIndex = 3;
-            DDLExpressions = new SelectList(selectListOptions);
-
-
+           
+            // IEnumerable items, string dataValueField, string dataTextField, IEnumerable selectedValues, string dataGroupField
+            DDLExpressions = new SelectList(DDLItems, "Value", "Text");
+            //var lastItem = DDLItems.Last();
+            //lastItem.Selected = true;
+            Result = "OnGet Executed";
         }
         public void OnPost()
         {
             XmlDocument xmlDocument = new XmlDocument();
-            ListBoxItems = new List<SelectListItem>();
-            ListBox = new SelectList(ListBoxItems);  
+            DDLItems = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "//book/title", Value = "//book/title" },
+                new SelectListItem { Text = "//book[@genre='novel']/title", Value = "//book[@genre='novel']/title"},
+                new SelectListItem { Text = "//book/author/first-name", Value = "//book/author/first-name" },
+                new SelectListItem { Text = "//book[@genre='philosophy']/title", Value = "//book[@genre='philosophy']/title"},
+                new SelectListItem { Text = "//book/price", Value = "//book/price" },
+                new SelectListItem { Text = "//book[3]/title", Value = "//book[3]/title"}
+            };
+            //var lastItem = DDLItems.Last();
+            //lastItem.Selected = true;
+            // IEnumerable items, string dataValueField, string dataTextField, IEnumerable selectedValues, string dataGroupField
+            DDLExpressions = new SelectList(DDLItems, "Value", "Text");
+            UpdateDisplay();
         }
         void UpdateDisplay()
         {
-            Request.Form["1stOutput"].ToList().Clear();
+            ListBoxItems = new List<SelectListItem>();
+            
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlPath);
-            XmlNodeList nodeList = doc.DocumentElement.SelectNodes(DDLExpressions.SelectedValue.ToString());
-            foreach (XmlNode child in nodeList)
-            {
-                SelectListItem NodeName = new SelectListItem("Node Name:", child.Value);
-                SelectListItem NodeValue = new SelectListItem("Node Value:", child.FirstChild.Value);
-                ListBoxItems.Add(NodeName);
-                ListBoxItems.Add(NodeValue);
+
+               
+                var rawitem = Request.Form["ddlSelect"];
+                string item = rawitem.ToString();
+                XmlNodeList nodeList = doc.DocumentElement.SelectNodes(item);
+                foreach (XmlNode child in nodeList)
+                {
+                    SelectListItem Node = new SelectListItem("Node Name:" + child.Name, "Node Name:" + child.Name);
+                    SelectListItem NodeValue2 = new SelectListItem("Node Value:" + child.FirstChild?.Value, "Node Value:" + child.FirstChild?.Value);
+                    ListBoxItems.Add(Node);
+                    ListBoxItems.Add(NodeValue2);
+
+                }
                 
-            }
+                ListBox = new SelectList(ListBoxItems, "Value", "Text");
+                Result = "OnPost Executed";
+            
         }
     }
 }
