@@ -1,0 +1,37 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter6.Listing6_8Model
+@{
+    ViewData["Title"] = "XPathNavigator Selection Example";
+}
+<h1>XPathNavigator Selection Example</h1>
+
+<div>
+    <form id="form1" method="post">
+        <p>Select the XPath Expression</p>
+        <select id="ddlSelect" name="ddlSelect" asp-for="DDLSelectedIndex" asp-items="Model.DDLExpressions">
+        </select>
+        <br />
+        <br />
+        <select id="listBox" name="listBox" asp-for="ListBoxIndex" asp-items="Model.ListBox">
+        </select>
+        <input id="mySubmit" type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+
+    <h1>@Model.Result</h1>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $("#ddlSelect").change(function () {
+                var ddlSelect = $(this);
+                var listBox = $("#listBox");
+                $("#mySubmit").click();
+
+                $("#form1").submit(function () {
+
+                });
+            });
+        });
+    </script>
+}

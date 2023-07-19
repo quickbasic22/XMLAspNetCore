@@ -49,13 +49,13 @@ namespace XMLAspNetCore.Pages.XML.Chapter4
             }
             catch (Exception ex)
             {
-                ViewData.Add("StatusMessage", ex.Message);
+                ViewData["StatusMessage"] = ex.Message;
                 myString += result;
             }
         }
         public void OnGet()
         {
-            ViewData.Add("XmlData", myString);
+            ViewData["XmlData"] = myString;
         }
     }
 }

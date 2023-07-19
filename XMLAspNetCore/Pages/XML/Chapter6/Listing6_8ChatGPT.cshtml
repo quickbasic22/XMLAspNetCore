@@ -1,0 +1,23 @@
+﻿@page
+@model XMLAspNetCore.Pages.XML.Chapter6.Listing6_8ChatGPTModel
+@{
+
+}
+
+<body>
+    <form method="post">
+        <div>
+            Select the XPath Expression:
+            <select name="ddlSelect" asp-for="DDLExpressions" asp-items="Model.DDLItems" onchange="this.form.submit()">
+                <option value="">-- Select --</option>
+            </select>
+            <br /><br />
+            <ul>
+                @foreach (var item in Model.OutputList)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        </div>
+    </form>
+</body>
