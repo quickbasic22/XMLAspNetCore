@@ -14,11 +14,13 @@ namespace XMLAspNetCore.Pages
         [BindProperty]
         public List<Book> Books { get; set; }
 
+        public ILogger<IndexModel> Logger => _logger;
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
             Books = new List<Book>();
-            Book book = new Book();
+            Book book = new();
             book.Genre = "Computer";
             book.BookTitle = "ASP.NET Core Razor Pages";
             book.FirstName = "David";
@@ -43,7 +45,7 @@ namespace XMLAspNetCore.Pages
         {
            
             string xmlPath = @"C:\Users\quick\source\repos\XMLAspNetCore\XMLAspNetCore\XML\bookstore.xml";
-            XmlDocument doc = new XmlDocument();
+            XmlDocument doc = new();
             if (System.IO.File.Exists(xmlPath))
             {
                 doc.Load(xmlPath);

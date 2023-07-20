@@ -1,4 +1,6 @@
-﻿namespace XMLAspNetCore.Models
+﻿using System.Xml.Serialization;
+
+namespace XMLAspNetCore.Models
 {
     public class Machine
     {
@@ -33,8 +35,8 @@
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string current
+            [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "current")]
+            public string Current
             {
                 get
                 {
@@ -47,8 +49,8 @@
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string manager
+            [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "manager")]
+            public string Manager
             {
                 get
                 {
@@ -146,8 +148,8 @@
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public uint test
+            [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "test")]
+            public uint Test
             {
                 get
                 {
@@ -175,7 +177,7 @@
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string info1
+            public string Info1
             {
                 get
                 {
@@ -188,8 +190,8 @@
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string info2
+            [System.Xml.Serialization.XmlAttributeAttribute("info2")]
+            public string Info2
             {
                 get
                 {
@@ -229,7 +231,7 @@
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string info3
+            public string Info3
             {
                 get
                 {

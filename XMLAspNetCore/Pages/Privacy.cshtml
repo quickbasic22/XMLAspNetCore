@@ -1,8 +1,63 @@
 ﻿@page
+@using XMLAspNetCore.Models;
 @model PrivacyModel
 @{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr class="card-title">
+                <td>@Html.DisplayNameFor(a => a.Employees[0].FirstName)</td>
+                <td>@Html.DisplayNameFor(a => a.Employees[0].LastName)</td>
+                <td>@Html.DisplayNameFor(a => a.Employees[0].City)</td>
+                <td>@Html.DisplayNameFor(a => a.Employees[0].State)</td>
+                <td>@Html.DisplayNameFor(a => a.Employees[0].ZipCode)</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Employee emp in Model.Employees)
+            {
+                <tr>
+                    <td>@emp.FirstName</td>
+                    <td>@emp.LastName</td>
+                    <td>@emp.City</td>
+                    <td>@emp.State</td>
+                    <td>@emp.ZipCode</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<form method="post">
+    <button value="Submit" class="btn btn-primary">Submit Button</button>
+</form>
+
+
+<p id="MessageCenter">@Html.Raw(Model.StatusMessage)</p>
+
+@section Scripts
+    {
+    <script>
+        $(function() 
+        {
+            // Function to display the message for a specific duration
+            showMessage(3000);
+        });
+        function showMessage(duration) 
+        {
+            var messageDiv = document.getElementById("MessageCenter");
+            messageDiv.style.display = "block";
+
+            setTimeout(function() 
+            {
+                var messageDiv = document.getElementById("MessageCenter");
+                messageDiv.style.display = "none";
+            }, duration);
+        }
+    </script>
+  }

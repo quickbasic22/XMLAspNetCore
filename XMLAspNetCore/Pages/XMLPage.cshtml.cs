@@ -8,9 +8,14 @@ namespace XMLAspNetCore.Pages
     {
         [BindProperty]
         public bool FileCreated { get; set; }
-
+        public string Alert { get; set; }
+        public void OnGet()
+        {
+            Alert = "Alert Success";
+        }
         public void OnPost()
         {
+            Alert = "OnPost Alert Success";
             string xmlFilePath = "C:\\Users\\quick\\source\\repos\\XMLAspNetCore\\XMLAspNetCore\\XML\\book.xml";
 
             if (!System.IO.File.Exists(xmlFilePath))

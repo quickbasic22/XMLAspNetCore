@@ -1,17 +1,20 @@
 ﻿@page
+@using System.IO;
+@using System.Text;
+@using Microsoft.AspNetCore.Html;
 @model XMLAspNetCore.Pages.AdventureWorks.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product Category Index";
 }
 
-<h1>Index</h1>
+<h1 class="navbar-text"><b>Product Category Index</b></h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="text-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProductCategory[0].Name)
@@ -26,10 +29,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ProductCategory) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
+        @{
+            string MyString = "";
+            StringWriter stringWriter = new();
+        }
+@foreach (var item in Model.ProductCategory) 
+{
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                    @{
+                        var name = Html.DisplayFor(modelItem => item.Name);
+                        name.WriteTo(stringWriter, HtmlEncoder);
+                        // need new line character written to stringWriter ?
+                        // this next line writes Bikes<br />Components<br />Clothing<br />Accessories<br />Active WebPages<br />
+                        stringWriter.Write(Html.Raw("<br />"));
+                    }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rowguid)
@@ -42,7 +57,18 @@
                 <a asp-page="./Details" asp-route-id="@item.ProductCategoryId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ProductCategoryId">Delete</a>
             </td>
+                <td>
+                    <h1>@MyString</h1>
+                </td>
         </tr>
+            
 }
-    </tbody>
+    </tbody>  
 </table>
+
+@{
+    stringWriter.Flush();
+    MyString = stringWriter.ToString();
+}
+
+<h1>@MyString</h1> 
