@@ -40,10 +40,11 @@
                     @Html.DisplayFor(modelItem => item.Name)
                     @{
                         var name = Html.DisplayFor(modelItem => item.Name);
+                        stringWriter.NewLine = Environment.NewLine;
                         name.WriteTo(stringWriter, HtmlEncoder);
                         // need new line character written to stringWriter ?
                         // this next line writes Bikes<br />Components<br />Clothing<br />Accessories<br />Active WebPages<br />
-                        stringWriter.Write(Html.Raw("<br />"));
+                        stringWriter.WriteLine();
                     }
             </td>
             <td>
@@ -57,9 +58,6 @@
                 <a asp-page="./Details" asp-route-id="@item.ProductCategoryId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ProductCategoryId">Delete</a>
             </td>
-                <td>
-                    <h1>@MyString</h1>
-                </td>
         </tr>
             
 }
@@ -71,4 +69,4 @@
     MyString = stringWriter.ToString();
 }
 
-<h1>@MyString</h1> 
+<h1><pre>@System.Web.HttpUtility.HtmlDecode(MyString)</pre></h1>
