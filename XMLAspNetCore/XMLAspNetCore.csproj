@@ -4,14 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a1d68f05-623c-4619-bf07-52d8ddc26509</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Pages\NewFolder\**" />
-    <Content Remove="Pages\NewFolder\**" />
-    <EmbeddedResource Remove="Pages\NewFolder\**" />
-    <None Remove="Pages\NewFolder\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Data\AdventureWorksContext.txt" />
@@ -32,7 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.8" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,42 @@
+﻿@page
+@model XMLAspNetCore.Pages.Advertisement.CreateModel
+@{
+    ViewData["Title"] = "Antique Car Advertisement Services";
+}
+
+<div class="container-lg accordion-body">
+    <div class="row">
+        <div class="accordion-item">
+            <h1>Post your advertisment</h1>
+        </div>
+         <div class="danger">
+             @Html.ValidationSummary(true)
+         </div>
+        @Html.DisplayNameFor(a => a.AdTitle)
+        @Html.TextBoxFor(a => a.AdTitle)
+        <br />
+        @Html.ValidationMessageFor(a => a.AdTitle)
+        @Html.DisplayNameFor(a => a.Description)
+        @Html.TextAreaFor(a => a.Description)
+        <br />
+        @Html.ValidationMessageFor(a => a.Duration)
+        @Html.DisplayNameFor(a => a.Duration)
+        @Html.DropDownListFor(a => a.Duration, Model.DurationListItems, "Select Duration", new { @class = "text-xxl-start"})
+        <br />
+        @Html.ValidationMessageFor(a => a.Price)
+        @Html.DisplayNameFor(a => a.Price)
+        @Html.TextBoxFor(a => a.Price)
+        <br />
+        @Html.ValidationMessageFor(a => a.Condition)
+        @Html.DisplayNameFor(a => a.Condition)
+        @Html.RadioButtonFor(a => a.Condition, Model.Condition, null)
+        <br />
+        @Html.ValidationMessageFor(a => a.Email)
+        @Html.DisplayNameFor(a => a.Email)
+        @Html.TextBoxFor(a => a.Email)
+    </div>
+    <a asp-page-handler="Process" class="btn btn-Primary">Post My Advertisement</a>
+
+    <br />
+    <h1>@ViewData["StatusMessage"]</h1>
+</div>

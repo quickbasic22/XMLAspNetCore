@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Bezier Curves</title>
+    <script src="../lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="550" height="150">
+    </canvas>
+    <script>
+        function init()
+        {
+            var canvas = document.getElementById("canvas");
+            
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#F30";
+                ctx.fillRect(0, 0, canvas.window, canvas.height);
+                ctx.clearRect(225, 25, 100, 100);
+            
+        }
+        init();
+    </script>
+</body>
+</html>
