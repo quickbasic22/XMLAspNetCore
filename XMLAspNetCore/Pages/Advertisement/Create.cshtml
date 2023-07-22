@@ -4,14 +4,16 @@
     ViewData["Title"] = "Antique Car Advertisement Services";
 }
 
-<div class="container-lg accordion-body">
+ @using (Html.BeginForm(FormMethod.Post))
+  {
+<div class="container">
     <div class="row">
-        <div class="accordion-item">
+        <div class="col-2">
             <h1>Post your advertisment</h1>
         </div>
-         <div class="danger">
-             @Html.ValidationSummary(true)
-         </div>
+        <div class="danger col-10">
+            @Html.ValidationSummary(true)
+        </div>
         @Html.DisplayNameFor(a => a.AdTitle)
         @Html.TextBoxFor(a => a.AdTitle)
         <br />
@@ -21,7 +23,7 @@
         <br />
         @Html.ValidationMessageFor(a => a.Duration)
         @Html.DisplayNameFor(a => a.Duration)
-        @Html.DropDownListFor(a => a.Duration, Model.DurationListItems, "Select Duration", new { @class = "text-xxl-start"})
+            @Html.DropDownListFor(a => a.Duration, Model.DurationListItems, "Select Duration", new { @class = "form-select-lg"})
         <br />
         @Html.ValidationMessageFor(a => a.Price)
         @Html.DisplayNameFor(a => a.Price)
@@ -29,14 +31,19 @@
         <br />
         @Html.ValidationMessageFor(a => a.Condition)
         @Html.DisplayNameFor(a => a.Condition)
-        @Html.RadioButtonFor(a => a.Condition, Model.Condition, null)
+            @Html.RadioButtonFor(a => a.Condition, Model.ConditionListItems, new { @class = ""})
         <br />
         @Html.ValidationMessageFor(a => a.Email)
         @Html.DisplayNameFor(a => a.Email)
         @Html.TextBoxFor(a => a.Email)
     </div>
-    <a asp-page-handler="Process" class="btn btn-Primary">Post My Advertisement</a>
+    <a class="btn btn-primary" asp-page="/Advertisement/Create" asp-page-handler="Process">Post My Advertisement</a>
 
     <br />
     <h1>@ViewData["StatusMessage"]</h1>
+
 </div>
+  }
+
+
+       
