@@ -21,6 +21,7 @@ namespace XMLAspNetCore.Pages
             _logger = logger;
             Books = new List<Book>();
             Book book = new();
+            book.Books = Books;
             book.Genre = "Computer";
             book.BookTitle = "ASP.NET Core Razor Pages";
             book.FirstName = "David";

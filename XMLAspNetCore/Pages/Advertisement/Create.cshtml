@@ -4,46 +4,68 @@
     ViewData["Title"] = "Antique Car Advertisement Services";
 }
 
- @using (Html.BeginForm(FormMethod.Post))
-  {
-<div class="container">
-    <div class="row">
-        <div class="col-2">
-            <h1>Post your advertisment</h1>
-        </div>
-        <div class="danger col-10">
-            @Html.ValidationSummary(true)
-        </div>
-        @Html.DisplayNameFor(a => a.AdTitle)
-        @Html.TextBoxFor(a => a.AdTitle)
-        <br />
-        @Html.ValidationMessageFor(a => a.AdTitle)
-        @Html.DisplayNameFor(a => a.Description)
-        @Html.TextAreaFor(a => a.Description)
-        <br />
-        @Html.ValidationMessageFor(a => a.Duration)
-        @Html.DisplayNameFor(a => a.Duration)
-            @Html.DropDownListFor(a => a.Duration, Model.DurationListItems, "Select Duration", new { @class = "form-select-lg"})
-        <br />
-        @Html.ValidationMessageFor(a => a.Price)
-        @Html.DisplayNameFor(a => a.Price)
-        @Html.TextBoxFor(a => a.Price)
-        <br />
-        @Html.ValidationMessageFor(a => a.Condition)
-        @Html.DisplayNameFor(a => a.Condition)
-            @Html.RadioButtonFor(a => a.Condition, Model.ConditionListItems, new { @class = ""})
-        <br />
-        @Html.ValidationMessageFor(a => a.Email)
-        @Html.DisplayNameFor(a => a.Email)
-        @Html.TextBoxFor(a => a.Email)
-    </div>
-    <a class="btn btn-primary" asp-page="/Advertisement/Create" asp-page-handler="Process">Post My Advertisement</a>
-
-    <br />
-    <h1>@ViewData["StatusMessage"]</h1>
-
+<div class="text-lg-center">
+    <h1>Post your advertisment</h1>
 </div>
-  }
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-control">
+        <div class="form-check">
+            <span asp-validation-for="AdTitle" class="alert-danger"></span>
+            <label asp-for="AdTitle" class="top-100"></label><br />
+            @if (Model.AdTitle != null)
+            {
+                @Html.TextBoxFor(a => a.AdTitle, Model.AdTitle.ToUpper(), new { style="width: 500px"})
+            }
+        </div>
+        <div class="form-check">
+            <span asp-validation-for="Description" class="alert-danger"></span>
+            <label asp-for="Description" style="font-weight: bold"></label><br />
+            @Html.TextAreaFor(a => a.Description, 5, 200, new { @class = "form-control" })
+        </div>
+        <div class="form-check">
+            <span asp-validation-for="Duration" class="alert-danger"></span>
+            <label asp-for="Duration" class="top-100"></label><br />
+            <select asp-for="Duration" asp-items="Model.DurationListItems" style="width: 400px" class="form-select"></select>
+        </div>
+        <div class="form-check">
+            <span asp-validation-for="Price" class="alert-danger"></span>
+            <label asp-for="Price" class="top-100"></label><br />
+            @Html.TextBoxFor(a => a.Price, "{0:N2}", new { style="width: 500px"})
+        </div>
+        <div class="form-check">
+            <span asp-validation-for="Condition" class="alert-danger"></span>
+            <label class="top-100">Radio Buttons</label><br />
+            <label>
+                <input type="radio" asp-for="Condition" value="Fair" />Fair
+            </label><br />
+            <label>
+                <input type="radio" asp-for="Condition" value="Good" />Good
+            </label><br />
+            <label>
+                <input type="radio" asp-for="Condition" value="As New" />As New
+            </label>
+        </div>
+
+        <div class="form-check">
+            <span asp-validation-for="Email" class="alert-danger"></span>
+            <label asp-for="Email" class="top-100"></label><br />
+            @Html.TextBoxFor(a => a.Email, "", new { style="width: 500px"})
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" asp-page=".\Create" asp-page-handler="Process" />
+}
+
+@if (Model.IsFormSubmitted && ModelState.IsValid)
+{
+    <h3>Form Submission Results:</h3>
+    <p>AdTile: @Model.AdTitle</p>
+    <p>Description: @Model.Description</p>
+    <p>Duration: @Model.Duration</p>
+    <p>Price: @Model.Price</p>
+    <p>Condition: @Model.Condition</p>
+}
 
 
-       
+<h1><pre>@Model.StatusMessage</pre></h1>

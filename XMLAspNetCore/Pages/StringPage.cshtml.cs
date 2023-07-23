@@ -8,9 +8,12 @@ namespace XMLAspNetCore.Pages
 {
     public class StringPageModel : PageModel
     {
+        public string MyString { get; set; }
         public PageResult OnGet()
         {
             ViewData["Message"] = "Hello World!";
+            MyString = "$(ProjectDir)\r\n$(ItemPath)\r\n$(ItemDir)\r\n$(ItemFileName)\r\n$(ItemExt)\r\n$(CurLine)";
+            
             return Page();
         }
         public PageResult OnPostSetStringAsync()

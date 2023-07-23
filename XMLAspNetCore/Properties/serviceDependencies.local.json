@@ -2,6 +2,20 @@
   "dependencies": {
     "secrets1": {
       "type": "secrets.user"
+    },
+    "mssql1": {
+      "serviceConnectorResourceId": "",
+      "secretStore": null,
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:AntiqueCarContext",
+      "dynamicId": null
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "",
+      "secretStore": null,
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:AdventureWorks2012Context",
+      "dynamicId": null
     }
   }
 }
