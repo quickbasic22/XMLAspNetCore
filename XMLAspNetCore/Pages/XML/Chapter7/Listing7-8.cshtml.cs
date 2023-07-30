@@ -5,6 +5,7 @@ namespace XMLAspNetCore.Pages.XML.Chapter7
 {
     public class Listing7_8Model : PageModel
     {
+        public string XMLTransformedToHtml { get; private set; }
         public void OnGet()
         {
         }

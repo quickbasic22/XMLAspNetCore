@@ -1,4 +1,8 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_3Model
 @{
+    ViewData["Title"] = "XSLT Style Sheet That Uses <xsl:apply-template> Element";
 }
+
+<h1>XSLT Style Sheet That Uses <xsl:apply-template> Element</h1>
+@Html.Raw(Model.XMLTransformedToHtml)

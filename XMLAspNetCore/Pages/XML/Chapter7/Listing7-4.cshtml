@@ -1,4 +1,9 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_4Model
 @{
+    ViewData["Title"] = "Using the XslCompiledTransform Class";
 }
+
+<h1>Using the XslCompiledTransform Class</h1>
+
+@Html.Raw(Model.XMLTransformedToHtml)

@@ -1,4 +1,9 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_2Model
 @{
+    ViewData["Title"] = "XSLT Style Sheet Used for Transforming the XML";
 }
+
+<h1>XSLT Style Sheet Used for Transforming the XML</h1>
+
+@Html.Raw(Model.XMLTransformedToHtml)

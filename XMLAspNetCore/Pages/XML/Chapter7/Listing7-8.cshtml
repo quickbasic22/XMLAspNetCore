@@ -1,4 +1,9 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_8Model
 @{
+    ViewData["Title"] = "XSLT Style Sheet That Leverages the Extension Object";
 }
+
+<h1>XSLT Style Sheet That Leverages the Extension Object</h1>
+
+@Html.Raw(Model.XMLTransformedToHtml)

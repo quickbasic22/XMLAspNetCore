@@ -1,4 +1,13 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_7Model
 @{
+    ViewData["Title"] = "Declaration of the Discount Class";
+    ViewData["Title"] += "XSL Style Sheet That Leverages the Extension Object";
+    ViewData["Title"] += "ASP.NET Page That Supplies the Extension Object to the XSL Style Sheet";
 }
+
+<h1>Declaration of the Discount Class</h1>
+<h2>XSL Style Sheet That Leverages the Extension Object</h2>
+<h3>ASP.NET Page That Supplies the Extension Object to the XSL Style Sheet</h3>
+
+@Html.Raw(Model.XMLTransformedToHtml)

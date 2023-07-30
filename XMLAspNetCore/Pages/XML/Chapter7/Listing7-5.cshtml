@@ -1,4 +1,10 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_5Model
 @{
+    ViewData["Title"] = "XSLT Style Sheet That Accepts Parameters";
 }
+
+<h1>XSLT Style Sheet That Accepts Parameters</h1>
+
+
+@Html.Raw(Model.XMLTransformedToHtml)

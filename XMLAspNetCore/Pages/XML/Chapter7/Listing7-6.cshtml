@@ -1,4 +1,9 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_6Model
 @{
+    ViewData["Title"] = "Passing Parameters to an XSL Style Sheet";
 }
+
+<h1>Passing Parameters to an XSL Style Sheet</h1>
+
+@Html.Raw(Model.XMLTransformedToHtml)

@@ -29,4 +29,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\XML\Books.xsl" />
+    <None Include="wwwroot\XML\Bookstore.xml" />
+  </ItemGroup>
+
 </Project>

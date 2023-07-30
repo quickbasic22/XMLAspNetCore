@@ -1,4 +1,12 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_9Model
 @{
+    ViewData["Title"] = "XSL Style Sheet that Utilizes the Script";
+    ViewData["Title"] += "Embedded Scripts Inside the XSL Style Sheet";
 }
+
+<h1>XSL Style Sheet that Utilizes the Script</h1>
+<h2>Embedded Scripts Inside the XSL Style Sheet</h2>
+
+@Html.Raw(Model.XMLTransformedToHtml)
+

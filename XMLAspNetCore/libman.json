@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap-datetimepicker@6.7.11",
+      "destination": "wwwroot/bootstrap-datetimepicker/"
+    },
+    {
+      "library": "bootstrap-rating@1.5.0",
+      "destination": "wwwroot/bootstrap-rating/"
+    },
+    {
+      "library": "bootstrap-calendar@0.2.5",
+      "destination": "wwwroot/bootstrap-calendar/"
+    },
+    {
+      "library": "bootstrap-star-rating@4.1.2",
+      "destination": "wwwroot/bootstrap-star-rating/"
+    },
+    {
+      "library": "bootstrap-material-datetimepicker@2.7.1",
+      "destination": "wwwroot/bootstrap-material-datetimepicker/"
+    },
+    {
+      "library": "jQuery-QueryBuilder@2.7.0",
+      "destination": "wwwroot/jQuery-QueryBuilder/"
+    }
+  ]
+}

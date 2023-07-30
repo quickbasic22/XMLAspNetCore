@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - XMLAspNetCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/XMLAspNetCore.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/XMLAspNetCore.styles.css" />
+    <link href="~/bootstrap-star-rating/css/star-rating.min.css" rel="stylesheet" />
+    @RenderSection("CustomStyles", required: false) <!-- Render custom CSS section from individual pages -->
 </head>
 <body id="LayoutBody">
 
@@ -91,8 +93,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="~/js/site.js"></script>
+    <script src="~/bootstrap-star-rating/js/star-rating.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
         </body>       
 </html>

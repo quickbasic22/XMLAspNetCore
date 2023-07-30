@@ -1,4 +1,10 @@
 ﻿@page
 @model XMLAspNetCore.Pages.XML.Chapter7.Listing7_1Model
 @{
+    ViewData["Title"] = "XML Document that represents the Bookstore";
 }
+
+<h1>XML Document that represents the Bookstore</h1>
+
+@*must use wwwroot/XML/Bookstore.xml for iframe to work*@
+<iframe src="~/XML/Bookstore.xml" width="1200" height="800"></iframe>
