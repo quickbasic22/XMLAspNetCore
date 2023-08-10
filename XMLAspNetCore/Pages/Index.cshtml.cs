@@ -27,7 +27,7 @@ namespace XMLAspNetCore.Pages
             book.FirstName = "David";
             book.LastName = "Morrow";
             book.Price = "19.99";
-            Books.Add(book);
+            Books.Add(book);  
         }
 
         public void OnGet()
